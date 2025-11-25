@@ -1,0 +1,4 @@
+<resources>
+    <color name="blue_primary">#195A8E</color> <color name="blue_button">#3478C3</color>  <color name="white">#FFFFFF</color>
+    <color name="text_label">#333333</color>
+    <color name="input_stroke">#6F9FD3</color> </resources>
