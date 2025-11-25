@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blue_background">#22578b</color> <color name="blue_button">#3276bf</color>     <color name="blue_stroke">#6FA6D6</color>     <color name="white">#FFFFFF</color>
+    <color name="text_hint">#808080</color>
+    <color name="black">#000000</color>
+</resources>
