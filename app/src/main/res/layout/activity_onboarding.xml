@@ -5,48 +5,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/primary_blue_bg"
+    android:background="#154C79"
     android:padding="24dp">
 
     <TextView
-        android:id="@+id/tvTitle"
+        android:id="@+id/tvAppName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NoteEase"
-        android:textColor="@color/white"
-        android:textSize="42sp"
+        android:textColor="@android:color/white"
+        android:textSize="40sp"
         android:textStyle="bold"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/ivHeroImage"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/ivLogo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <ImageView
-        android:id="@+id/ivHeroImage"
+        android:id="@+id/ivLogo"
         android:layout_width="158dp"
         android:layout_height="182dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="16dp"
         android:src="@drawable/notebook_dynamic_color"
+        android:contentDescription="Logo Buku"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/tvSubtitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitle"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvAppName" />
 
     <TextView
         android:id="@+id/tvSubtitle"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Mencatat tanpa tinta,\ndigitalkan segalanya."
-        android:textAlignment="center"
-        android:textColor="@color/white"
+        android:text="Mencatat tanpa tinta,\ndigital selamanya."
+        android:textColor="@android:color/white"
         android:textSize="16sp"
+        android:textAlignment="center"
+        android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/btnRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivHeroImage" />
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo"
+        app:layout_constraintVertical_bias="0.0" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRegister"
@@ -55,23 +57,26 @@
         android:layout_height="60dp"
         android:layout_marginBottom="16dp"
         android:text="Belum ada akun? Daftar dulu"
-        android:textColor="@color/white"
-        app:strokeColor="@color/white"
-        app:strokeWidth="1dp"
-        app:cornerRadius="24dp"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        app:cornerRadius="30dp"
         app:layout_constraintBottom_toTopOf="@+id/btnLogin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="#6DA7D6"
+        app:strokeWidth="1dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="32dp"
         android:text="Masuk"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/button_blue"
-        app:cornerRadius="24dp"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        app:backgroundTint="#2F7AC3"
+        app:cornerRadius="30dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
