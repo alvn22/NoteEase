@@ -1,4 +1,4 @@
-package com.example.noteease
+package com.example.noteease.ui.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,8 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.noteease.MainActivity
+import com.example.noteease.R
 import com.google.android.material.button.MaterialButton
 
 class LoginActivity : AppCompatActivity() {
