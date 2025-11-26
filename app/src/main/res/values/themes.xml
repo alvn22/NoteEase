@@ -1,9 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.NoteEase" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <style name="BottomNavTextStyle">
+            <item name="android:fontFamily">@font/poppins_bold</item>
+            <item name="android:textColor">@color/S1</item>
+            <item name="android:textSize">12sp</item>
+        </style>
     </style>
+
 
     <style name="Theme.NoteEase" parent="Base.Theme.NoteEase" />
 </resources>
