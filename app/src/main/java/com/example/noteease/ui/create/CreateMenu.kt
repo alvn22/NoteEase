@@ -1,4 +1,6 @@
 package com.example.noteease.ui.create
 
-class CreateMenu {
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+
+class CreateMenu : BottomSheetDialogFragment() {
 }
