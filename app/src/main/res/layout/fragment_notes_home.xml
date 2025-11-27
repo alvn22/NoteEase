@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#154C79"
+    android:background="@color/P2"
     android:padding="16dp">
 
     <androidx.cardview.widget.CardView
@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginEnd="12dp"
-        app:cardBackgroundColor="@android:color/white"
+        app:cardBackgroundColor="@color/P3"
         app:cardCornerRadius="16dp"
         app:cardElevation="0dp"
         app:layout_constraintEnd_toStartOf="@id/ivProfile"
@@ -40,8 +40,8 @@
                 android:hint="Cari Notes..."
                 android:imeOptions="actionSearch"
                 android:inputType="text"
-                android:textColor="@android:color/black"
-                android:textColorHint="#888888"
+                android:textColor="@color/S1"
+                android:textColorHint="@color/S2"
                 android:textSize="14sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
@@ -51,6 +51,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         app:cardCornerRadius="24dp"
+        app:cardBackgroundColor="@color/P3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -67,11 +68,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:fontFamily="sans-serif-medium"
+        android:fontFamily="@font/plus_jakarta_sans_bold"
         android:text="Notes"
-        android:textColor="@android:color/white"
-        android:textSize="32sp"
-        android:textStyle="bold"
+        android:textColor="@color/P3"
+        android:textSize="45sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cvSearchBar" />
 
