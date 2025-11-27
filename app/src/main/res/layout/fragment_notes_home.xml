@@ -8,72 +8,16 @@
     android:background="@color/P2"
     android:padding="16dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvSearchBar"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="12dp"
-        app:cardBackgroundColor="@color/P3"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="0dp"
-        app:layout_constraintEnd_toStartOf="@id/ivProfile"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:paddingHorizontal="16dp">
-
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:src="@drawable/outline_search_24"
-                app:tint="@color/S1" />
-            <EditText
-                android:id="@+id/etSearch"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="8dp"
-                android:hint="Cari Notes..."
-                android:imeOptions="actionSearch"
-                android:inputType="text"
-                android:textColor="@color/S1"
-                android:textColorHint="@color/S2"
-                android:textSize="14sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/ivProfile"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        app:cardCornerRadius="24dp"
-        app:cardBackgroundColor="@color/P3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:padding="8dp"
-            android:src="@drawable/outline_person_24"
-            app:tint="@color/S1"/>
-    </androidx.cardview.widget.CardView>
-
     <TextView
         android:id="@+id/tvPageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:fontFamily="@font/plus_jakarta_sans_bold"
         android:text="Notes"
         android:textColor="@color/P3"
         android:textSize="45sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/cvSearchBar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvNotes"
