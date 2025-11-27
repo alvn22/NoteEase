@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue_background"
+    android:background="@color/P2"
     android:padding="24dp">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NoteEase"
-        android:textColor="@color/white"
+        android:textColor="@color/P3"
         android:textSize="38sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/tvLoginTitle"
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:text="Login"
-        android:textColor="@color/white"
+        android:textColor="@color/P3"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/cardContainer"
@@ -38,7 +38,7 @@
         android:id="@+id/cardContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="@color/white"
+        app:cardBackgroundColor="@color/P3"
         app:cardCornerRadius="20dp"
         app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:text="Phone Number / Email:"
-                android:textColor="@color/black"
+                android:textColor="@color/S1"
                 android:textStyle="bold"
                 android:textSize="14sp" />
 
@@ -67,7 +67,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_input_border"
                 android:hint="nomor / email anda"
-                android:textColorHint="@color/text_hint"
+                android:textColorHint="@color/P1"
                 android:inputType="textEmailAddress"
                 android:textSize="14sp"
                 android:padding="12dp"/>
@@ -78,7 +78,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
                 android:text="Password:"
-                android:textColor="@color/black"
+                android:textColor="@color/S1"
                 android:textStyle="bold"
                 android:textSize="14sp" />
 
@@ -88,12 +88,12 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_input_border"
                 android:hint="kata sandi anda"
-                android:textColorHint="@color/text_hint"
+                android:textColorHint="@color/P1"
                 android:inputType="textPassword"
                 android:textSize="14sp"
                 android:padding="12dp"
                 android:drawableEnd="@android:drawable/ic_menu_view"
-                android:drawableTint="@color/blue_button"/>
+                android:drawableTint="@color/P1"/>
             <TextView
                 android:id="@+id/tvForgotPassword"
                 android:layout_width="wrap_content"
@@ -101,7 +101,7 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="8dp"
                 android:text="Lupa password?"
-                android:textColor="#757575"
+                android:textColor="@color/S2"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -112,12 +112,12 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:backgroundTint="@color/blue_button"
+        android:backgroundTint="@color/P1"
         android:paddingVertical="14dp"
         android:text="Masuk"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/P3"
         android:textAllCaps="false"
-        android:textSize="16sp"
         android:textStyle="bold"
         app:cornerRadius="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
