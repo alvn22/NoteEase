@@ -19,6 +19,6 @@
         android:id="@+id/nav_create"
         android:name="com.example.noteease.ui.create.CreateMenu"
         android:label="Create"
-        tools:layout="@layout/create_menu" />
+        tools:layout="@layout/bottom_dialog_create_menu" />
 
 </navigation>
