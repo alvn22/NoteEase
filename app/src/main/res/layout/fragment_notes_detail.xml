@@ -12,7 +12,7 @@
     android:padding="24dp">
 
     <LinearLayout
-        android:id="@+id/btnBackDetailTodos"
+        android:id="@+id/btnBackDetailNotes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="?attr/selectableItemBackgroundBorderless"
@@ -41,7 +41,7 @@
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnSaveTodos"
+        android:id="@+id/btnSaveNotes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:enabled="false"
@@ -55,82 +55,56 @@
         android:textColor="@color/P2"
         android:textSize="14sp"
         app:cornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="@id/btnBackDetailTodos"
+        app:layout_constraintBottom_toBottomOf="@id/btnBackDetailNotes"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/btnBackDetailTodos"
+        app:layout_constraintTop_toTopOf="@id/btnBackDetailNotes"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
-        android:id="@+id/btnShareTodos"
+        android:id="@+id/btnShareNotes"
         android:layout_width="40dp"
         android:layout_height="0dp"
         android:layout_marginEnd="8dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="Share To-Do"
+        android:contentDescription="Share Note"
         android:scaleType="centerInside"
         android:src="@drawable/baseline_share_24"
         app:tint="@color/P3"
-        app:layout_constraintBottom_toBottomOf="@id/btnSaveTodos"
-        app:layout_constraintEnd_toStartOf="@id/btnSaveTodos"
-        app:layout_constraintTop_toTopOf="@id/btnSaveTodos" />
+        app:layout_constraintBottom_toBottomOf="@id/btnSaveNotes"
+        app:layout_constraintEnd_toStartOf="@id/btnSaveNotes"
+        app:layout_constraintTop_toTopOf="@id/btnSaveNotes" />
 
     <EditText
-        android:id="@+id/etTodoTitleDetail"
+        android:id="@+id/etNotesTitleDetail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:background="@null"
         android:fontFamily="@font/poppins_bold"
-        android:hint="To-Do Title"
+        android:hint="Notes Title"
         android:inputType="textCapWords|textMultiLine"
         android:textColor="@color/P3"
         android:textColorHint="@color/S3"
         android:textSize="32sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/btnBackDetailTodos" />
+        app:layout_constraintTop_toBottomOf="@id/btnBackDetailNotes" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvChecklist"
+    <EditText
+        android:id="@+id/etNotesBodyDetail"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_checklist_row"
-        tools:itemCount="3"
-        app:layout_constraintBottom_toTopOf="@id/btnAddItem"
-        app:layout_constraintTop_toBottomOf="@id/etTodoTitleDetail"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <LinearLayout
-        android:id="@+id/btnAddItem"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_add_border"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingVertical="12dp"
+        android:background="@null"
+        android:fontFamily="@font/poppins"
+        android:gravity="top|start"
+        android:hint="Type something..."
+        android:inputType="textCapSentences|textMultiLine"
+        android:lineSpacingExtra="4dp"
+        android:scrollbars="vertical"
+        android:textColor="@color/P3"
+        android:textColorHint="@color/S3"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <ImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:src="@drawable/outline_add_circle_24"
-            app:tint="@color/S3"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:text="Add Task"
-            android:textColor="@color/S3"
-            android:fontFamily="@font/poppins_medium"
-            android:textSize="16sp"/>
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@id/etNotesTitleDetail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
