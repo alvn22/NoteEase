@@ -1,10 +1,10 @@
-package com.example.noteease // Sesuaikan dengan nama package project Anda
+package com.example.noteease.ui.auth // Sesuaikan dengan nama package project Anda
 
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.noteease.R
 import com.google.android.material.textfield.TextInputEditText
 
 class RegisterActivity : AppCompatActivity() {
