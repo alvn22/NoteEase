@@ -9,59 +9,52 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 
 class LoginActivity : AppCompatActivity() {
-    private lateinit var etEmail: EditText
-    private lateinit var etPassword: EditText
+    private lateinit var inpEmail: EditText
+    private lateinit var inpPassword: EditText
     private lateinit var btnLogin: MaterialButton
-    private lateinit var tvForgotPassword: TextView
+    private lateinit var forgotPassword: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        // 1. Inisialisasi Views (Menghubungkan dengan ID di XML)
-        etEmail = findViewById(R.id.etEmail)
-        etPassword = findViewById(R.id.etPassword)
+        inpEmail = findViewById(R.id.inpEmail)
+        inpPassword = findViewById(R.id.inpPassword)
         btnLogin = findViewById(R.id.btnLogin)
-        tvForgotPassword = findViewById(R.id.tvForgotPassword)
+        forgotPassword = findViewById(R.id.forgotPassword)
 
-        // 2. Aksi saat tombol "Masuk" diklik
         btnLogin.setOnClickListener {
             performLogin()
         }
 
-        // 3. Aksi saat teks "Lupa Password" diklik
-        tvForgotPassword.setOnClickListener {
+        forgotPassword.setOnClickListener {
             Toast.makeText(this, "Fitur lupa password belum tersedia", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun performLogin() {
-        val email = etEmail.text.toString().trim()
-        val password = etPassword.text.toString().trim()
+        val email = inpEmail.text.toString().trim()
+        val password = inpPassword.text.toString().trim()
 
-        // Validasi Input Kosong
         if (email.isEmpty()) {
-            etEmail.error = "Email atau Nomor HP tidak boleh kosong"
-            etEmail.requestFocus()
+            inpEmail.error = "Email atau Nomor HP tidak boleh kosong"
+            inpEmail.requestFocus()
             return
         }
 
         if (password.isEmpty()) {
-            etPassword.error = "Password tidak boleh kosong"
-            etPassword.requestFocus()
+            inpPassword.error = "Password tidak boleh kosong"
+            inpPassword.requestFocus()
             return
         }
 
-        if (email == "admin" && password == "123456") {
-
+        if (email == "admin" && password == "12345") {
             Toast.makeText(this, "Login Berhasil!", Toast.LENGTH_SHORT).show()
-
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
 
         } else {
-            // Jika login gagal
             Toast.makeText(this, "Email atau Password salah!", Toast.LENGTH_SHORT).show()
         }
     }
