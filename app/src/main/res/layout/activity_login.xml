@@ -9,30 +9,33 @@
     android:padding="24dp">
 
     <TextView
-        android:id="@+id/tvAppName"
+        android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/plus_jakarta_sans_bold"
         android:text="NoteEase"
         android:textColor="@color/P3"
         android:textSize="38sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/tvLoginTitle"
+        app:layout_constraintBottom_toTopOf="@+id/loginTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.3" />
 
     <TextView
-        android:id="@+id/tvLoginTitle"
+        android:id="@+id/loginTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:fontFamily="@font/plus_jakarta_sans_bold"
         android:text="Login"
         android:textColor="@color/P3"
-        android:textSize="20sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/cardContainer"
-        app:layout_constraintStart_toStartOf="@+id/cardContainer" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardContainer"
@@ -56,17 +59,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="Phone Number / Email:"
+                android:fontFamily="@font/poppins_medium"
+                android:text="Username / Email:"
                 android:textColor="@color/S1"
                 android:textStyle="bold"
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/etEmail"
+                android:id="@+id/inpEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_input_border"
-                android:hint="nomor / email anda"
+                android:hint="Username / email"
+                android:fontFamily="@font/poppins"
                 android:textColorHint="@color/P1"
                 android:inputType="textEmailAddress"
                 android:textSize="14sp"
@@ -77,25 +82,26 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
+                android:fontFamily="@font/poppins_medium"
                 android:text="Password:"
                 android:textColor="@color/S1"
                 android:textStyle="bold"
                 android:textSize="14sp" />
 
             <EditText
-                android:id="@+id/etPassword"
+                android:id="@+id/inpPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_input_border"
-                android:hint="kata sandi anda"
+                android:hint="Kata sandi"
+                android:fontFamily="@font/poppins"
                 android:textColorHint="@color/P1"
                 android:inputType="textPassword"
                 android:textSize="14sp"
                 android:padding="12dp"
-                android:drawableEnd="@android:drawable/ic_menu_view"
                 android:drawableTint="@color/P1"/>
             <TextView
-                android:id="@+id/tvForgotPassword"
+                android:id="@+id/forgotPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"

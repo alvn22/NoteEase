@@ -9,7 +9,7 @@
     android:background="@color/P2">
 
     <TextView
-        android:id="@+id/tvAppName"
+        android:id="@+id/appName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/plus_jakarta_sans_bold"
