@@ -3,22 +3,55 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/nav_notes"> <fragment
-    android:id="@+id/nav_notes"
-    android:name="com.example.noteease.ui.notes.NotesHomeFragment"
-    android:label="Notes"
-    tools:layout="@layout/fragment_notes_home" />
+    app:startDestination="@id/nav_notes">
+
+    <fragment
+        android:id="@+id/nav_notes"
+        android:name="com.example.noteease.ui.notes.NotesHomeFragment"
+        android:label="Notes"
+        tools:layout="@layout/fragment_notes_home">
+
+        <action
+            android:id="@+id/action_home_to_detail_note"
+            app:destination="@id/nav_notes_detail" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_todos"
         android:name="com.example.noteease.ui.todos.TodosHomeFragment"
         android:label="To-Dos"
-        tools:layout="@layout/fragment_todos_home" />
+        tools:layout="@layout/fragment_todos_home">
+
+        <action
+            android:id="@+id/action_home_to_detail_todo"
+            app:destination="@id/nav_todos_detail" />
+    </fragment>
 
     <dialog
         android:id="@+id/nav_create"
         android:name="com.example.noteease.ui.create.CreateMenu"
         android:label="Create"
-        tools:layout="@layout/bottom_dialog_create_menu" />
+        tools:layout="@layout/bottom_dialog_create_menu">
+
+        <action
+            android:id="@+id/action_create_to_detail_note"
+            app:destination="@id/nav_notes_detail" />
+
+        <action
+            android:id="@+id/action_create_to_detail_todo"
+            app:destination="@id/nav_todos_detail" />
+    </dialog>
+
+    <fragment
+        android:id="@+id/nav_notes_detail"
+        android:name="com.example.noteease.ui.notes.NoteDetailFragment"
+        android:label="Note Detail"
+        tools:layout="@layout/fragment_notes_detail" />
+
+    <fragment
+        android:id="@+id/nav_todos_detail"
+        android:name="com.example.noteease.ui.todos.TodosDetailFragment"
+        android:label="Todo Detail"
+        tools:layout="@layout/fragment_todos_detail" />
 
 </navigation>
