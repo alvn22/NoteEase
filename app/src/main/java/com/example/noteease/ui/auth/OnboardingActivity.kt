@@ -6,6 +6,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.noteease.ui.auth.LoginActivity
+import com.example.noteease.ui.auth.RegisterActivity
 import com.google.android.material.button.MaterialButton
 
 class OnboardingActivity : AppCompatActivity() {
