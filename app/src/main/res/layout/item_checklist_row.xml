@@ -45,12 +45,12 @@
         android:textColorHint="@color/S3"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnDelete"
+        app:layout_constraintEnd_toStartOf="@id/btnDeleteItemTodo"
         app:layout_constraintStart_toEndOf="@id/cbCheck"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/btnDelete"
+    <ImageButton
+        android:id="@+id/btnDeleteItemTodo"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:background="?attr/selectableItemBackgroundBorderless"

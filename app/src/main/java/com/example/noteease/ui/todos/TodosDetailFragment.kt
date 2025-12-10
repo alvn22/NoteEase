@@ -5,6 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.LinearLayout
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.noteease.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -18,17 +25,10 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class TodosDetailFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var todoId: Int = -1
+    private val checklist = mutableListOf<TodoItem>()
+    private lateinit var adapter: ChecklistAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +36,63 @@ class TodosDetailFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_todos_detail, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        var etTitle = view.findViewById<EditText>(R.id.etTodoTitleDetail)
+        var rvChecklist = view.findViewById<RecyclerView>(R.id.rvChecklist)
+        var btnAddItem = view.findViewById<Button>(R.id.btnAddItem)
+        var btnSave = view.findViewById<Button>(R.id.btnSaveTodos)
+
+        arguments?.let {
+            todoId = it.getInt("todoId", -1)
+        }
+
+        adapter = ChecklistAdapter(checklist) { itemId ->
+            val index = checklist.indexOfFirst { it.id == itemId }
+            if (index != -1) {
+                checklist.removeAt(index)
+                adapter.notifyItemRemoved(index)
+            }
+        }
+
+        rvChecklist.layoutManager = LinearLayoutManager(requireContext())
+        rvChecklist.adapter = adapter
+
+        if (todoId != -1) {
+            val todo = TodosRepository.getTodoById(todoId)
+            todo?.let {
+                etTitle.setText(it.title)
+                checklist.addAll(it.items)
+                adapter.notifyDataSetChanged()
+            }
+        }
+
+        btnAddItem.setOnClickListener {
+            val newItem = TodoItem(id = -1, text = "")
+            checklist.add(newItem)
+            adapter.notifyItemInserted(checklist.size - 1)
+        }
+
+        btnSave.setOnClickListener {
+            val title = etTitle.text.toString()
+            if (title.isBlank()) {
+                Toast.makeText(requireContext(), "Judul harus diisi!", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (todoId == -1) {
+                // Create baru
+                TodosRepository.addTodo(title, checklist)
+            } else {
+                // Update existing
+                TodosRepository.updateTodo(todoId, title, checklist)
+            }
+
+            requireActivity().onBackPressed()
+        }
     }
 
     companion object {

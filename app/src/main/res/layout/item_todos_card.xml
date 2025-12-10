@@ -49,7 +49,7 @@
                 android:layout_marginBottom="4dp">
 
                 <CheckBox
-                    android:id="@+id/cbItem1"
+                    android:id="@+id/cbItem"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:clickable="false"
@@ -61,7 +61,7 @@
                     android:buttonTint="@color/S2" />
 
                 <TextView
-                    android:id="@+id/tvItem1"
+                    android:id="@+id/tvItem"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
@@ -71,69 +71,6 @@
                     android:maxLines="1"
                     android:ellipsize="end"
                     tools:text="Matematika" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:layout_marginBottom="4dp">
-
-                <CheckBox
-                    android:id="@+id/cbItem2"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
-                    android:scaleX="0.8"
-                    android:scaleY="0.8"
-                    android:buttonTint="@color/S2" />
-
-                <TextView
-                    android:id="@+id/tvItem2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:fontFamily="@font/poppins"
-                    android:textSize="12sp"
-                    android:textColor="@color/S1"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    tools:text="PPKn" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <CheckBox
-                    android:id="@+id/cbItem3"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:minWidth="0dp"
-                    android:minHeight="0dp"
-                    android:scaleX="0.8"
-                    android:scaleY="0.8"
-                    android:buttonTint="@color/S2" />
-
-                <TextView
-                    android:id="@+id/tvItem3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:fontFamily="@font/poppins"
-                    android:textSize="12sp"
-                    android:textColor="@color/S1"
-                    android:maxLines="1"
-                    android:ellipsize="end"
-                    tools:text="Jaringan Komputer" />
             </LinearLayout>
 
         </LinearLayout>

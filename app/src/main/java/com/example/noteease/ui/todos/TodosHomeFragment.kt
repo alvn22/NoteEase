@@ -5,6 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.noteease.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -22,6 +26,9 @@ class TodosHomeFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var adapter: TodosAdapter
+    private val todos = mutableListOf<Todo>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -36,6 +43,35 @@ class TodosHomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_todos_home, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        var rv = view.findViewById<RecyclerView>(R.id.rvTodos)
+        rv.layoutManager = LinearLayoutManager(requireContext())
+
+        adapter = TodosAdapter(todos) { todo ->
+            val bundle = Bundle()
+            bundle.putInt("todoId", todo.id)
+            findNavController().navigate(R.id.nav_todos_detail, bundle)
+
+        }
+
+        rv.layoutManager = LinearLayoutManager(requireContext())
+        rv.adapter = adapter
+
+    }
+
+    private fun refreshList() {
+        todos.clear()
+        todos.addAll(TodosRepository.getAllTodos())
+        adapter.notifyDataSetChanged()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        refreshList()
     }
 
     companion object {
