@@ -27,7 +27,7 @@ class TodosHomeFragment : Fragment() {
     private var param2: String? = null
 
     private lateinit var adapter: TodosAdapter
-    private val todos = mutableListOf<Todo>()
+    private lateinit var todos: MutableList<Todo>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -51,14 +51,19 @@ class TodosHomeFragment : Fragment() {
         var rv = view.findViewById<RecyclerView>(R.id.rvTodos)
         rv.layoutManager = LinearLayoutManager(requireContext())
 
-        adapter = TodosAdapter(todos) { todo ->
-            val bundle = Bundle()
-            bundle.putInt("todoId", todo.id)
-            findNavController().navigate(R.id.nav_todos_detail, bundle)
+        todos = TodosRepository.getAllTodos().toMutableList()
 
-        }
+        adapter = TodosAdapter(todos,
+            onClick = { todo ->
+                val bundle = Bundle()
+                bundle.putInt("todoId", todo.id)
+                findNavController().navigate(R.id.nav_todos_detail, bundle)
+            },
+            onDelete = { todo ->
+                TodosRepository.deleteTodo(todo)
+                refreshList()
+            })
 
-        rv.layoutManager = LinearLayoutManager(requireContext())
         rv.adapter = adapter
 
     }
@@ -67,11 +72,6 @@ class TodosHomeFragment : Fragment() {
         todos.clear()
         todos.addAll(TodosRepository.getAllTodos())
         adapter.notifyDataSetChanged()
-    }
-
-    override fun onResume() {
-        super.onResume()
-        refreshList()
     }
 
     companion object {

@@ -84,10 +84,8 @@ class TodosDetailFragment : Fragment() {
             }
 
             if (todoId == -1) {
-                // Create baru
                 TodosRepository.addTodo(title, checklist)
             } else {
-                // Update existing
                 TodosRepository.updateTodo(todoId, title, checklist)
             }
 

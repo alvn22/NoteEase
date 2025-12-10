@@ -3,19 +3,21 @@ package com.example.noteease.ui.todos
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.noteease.R
 
 class TodosAdapter(private val todos: MutableList<Todo>,
-                   private val onClick: (todo: Todo) -> Unit) : RecyclerView.Adapter<TodosAdapter.TodoViewHolder>() {
+                   private val onClick: (todo: Todo) -> Unit,
+                   private val onDelete: (todoId: Int) -> Unit) : RecyclerView.Adapter<TodosAdapter.TodoViewHolder>() {
 
     inner class TodoViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title = itemView.findViewById<TextView>(R.id.tvTodosTitle)
         val layoutItem = itemView.findViewById<LinearLayout>(R.id.llTodosItemsContainer)
-//        val container = itemView.findViewById<CardView>(R.id.cardTodo)
+        val btnDelete = itemView.findViewById<ImageButton>(R.id.btnDeleteTodos)
+
         fun bind(todo: Todo) {
             title.text = todo.title
             layoutItem.removeAllViews()
@@ -28,12 +30,10 @@ class TodosAdapter(private val todos: MutableList<Todo>,
                 }
                 layoutItem.addView(tvItem)
             }
-            itemView.setOnClickListener {
-                onClick(todo)
-            }
-        }
+            itemView.setOnClickListener { onClick(todo) }
 
-//        val btnDelete = itemView.findViewById<Button>(R.id.btnDeleteTodo)
+            btnDelete.setOnClickListener { onDelete(todo.id) }
+        }
     }
 
     override fun onCreateViewHolder(
@@ -50,10 +50,6 @@ class TodosAdapter(private val todos: MutableList<Todo>,
         position: Int
     ) {
         holder.bind(todos[position])
-//        val todo = todos[position]
-//        holder.title.text = todo.title
-//
-//        holder.container.setOnClickListener { onClick(todo) }
     }
 
     override fun getItemCount() = todos.size
