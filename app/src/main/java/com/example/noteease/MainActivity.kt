@@ -5,9 +5,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.example.noteease.ui.create.CreateMenu
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -25,5 +24,21 @@ class MainActivity : AppCompatActivity() {
         val navHost = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as androidx.navigation.fragment.NavHostFragment
         val navController = navHost.navController
         bottomNav.setupWithNavController(navController)
+
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_create -> {
+                    val sheet = CreateMenu()
+                    sheet.show(supportFragmentManager, "CreateChooser")
+                    false
+                } R.id.nav_notes -> {
+                    navController.navigate(R.id.nav_notes)
+                    true
+                } R.id.nav_todos -> {
+                    navController.navigate(R.id.nav_todos)
+                    true
+                } else -> false
+            }
+        }
     }
 }
