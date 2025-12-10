@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.noteease.R
+import com.example.noteease.ui.todos.TodosRepository
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -23,6 +25,8 @@ class NotesHomeFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+    private lateinit var adapter: NotesAdapter
+    private lateinit var notes: MutableList<Note>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,14 +48,28 @@ class NotesHomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val recycler = view.findViewById<RecyclerView>(R.id.rvNotes)
+        recycler.layoutManager = LinearLayoutManager(requireContext())
 
-        val notes = NotesRepository.getAllNotes()
+        notes = NotesRepository.getAllNotes().toMutableList()
 
-        recycler.adapter = NotesAdapter(notes) { note ->
-            val bundle = Bundle()
-            bundle.putInt("noteId", note.id)
-            findNavController().navigate(R.id.nav_notes_detail, bundle)
-        }
+        adapter = NotesAdapter(notes,
+            onClick = { note ->
+                val bundle = Bundle()
+                bundle.putInt("noteId", note.id)
+                findNavController().navigate(R.id.nav_notes_detail, bundle)
+            },
+            onDelete = { note ->
+                NotesRepository.deleteNote(note.id)
+                refreshList()
+            }
+        )
+        recycler.adapter = adapter
+    }
+
+    private fun refreshList() {
+        notes.clear()
+        notes.addAll(NotesRepository.getAllNotes())
+        adapter.notifyDataSetChanged()
     }
 
     companion object {
