@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.example.noteease.R
 
 // TODO: Rename parameter arguments, choose names that match
@@ -36,6 +38,20 @@ class NotesHomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_notes_home, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val recycler = view.findViewById<RecyclerView>(R.id.rvNotes)
+
+        val notes = NotesRepository.getAllNotes()
+
+        recycler.adapter = NotesAdapter(notes) { note ->
+            val bundle = Bundle()
+            bundle.putInt("noteId", note.id)
+            findNavController().navigate(R.id.nav_notes_detail, bundle)
+        }
     }
 
     companion object {
