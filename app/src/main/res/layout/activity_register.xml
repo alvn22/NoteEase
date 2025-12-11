@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
                     android:hint="Username"
-                    android:inputType="phone"
+                    android:inputType="text"
                     android:textColorHint="@color/P1" />
             </com.google.android.material.textfield.TextInputLayout>
 

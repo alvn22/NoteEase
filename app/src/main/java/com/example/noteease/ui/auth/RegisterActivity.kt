@@ -21,10 +21,10 @@ class RegisterActivity : AppCompatActivity() {
         val btnRegister = findViewById<Button>(R.id.btnRegister)
 
         btnRegister.setOnClickListener {
-            val username = inpUsername.text.toString().trim()
-            val email = inpEmail.text.toString().trim()
-            val password = inpPassword.text.toString().trim()
-            val confirmPassword = inpConfirmPassword.text.toString().trim()
+            val username = inpUsername.text.toString()
+            val email = inpEmail.text.toString()
+            val password = inpPassword.text.toString()
+            val confirmPassword = inpConfirmPassword.text.toString()
             if (username.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(this, "Mohon isi semua data!", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
@@ -32,12 +32,14 @@ class RegisterActivity : AppCompatActivity() {
 
             if (password != confirmPassword) {
                 inpConfirmPassword.error = "Password tidak sama!"
-                Toast.makeText(this, "Konfirmasi password salah", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            Toast.makeText(this, "Registrasi Berhasil!", Toast.LENGTH_LONG).show()
-            val intent = Intent(this, MainActivity::class.java)
+            val newUser = User(username, email, password)
+            UserRepository.addUser(newUser)
+
+            Toast.makeText(this, "Registrasi berhasil, silahkan login", Toast.LENGTH_LONG).show()
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }
