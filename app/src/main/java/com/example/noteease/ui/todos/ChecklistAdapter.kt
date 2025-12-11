@@ -60,9 +60,4 @@ class ChecklistAdapter(
     }
 
     override fun getItemCount() = items.size
-
-//    fun addItem(item: ChecklistItem) {
-//        items.add(item)
-//        notifyItemInserted(items.size - 1)
-//    }
 }
